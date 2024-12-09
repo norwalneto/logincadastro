@@ -43,7 +43,7 @@ public class AuthController {
     // Endpoint de Cadastro
     @PostMapping("/signup")
     public ResponseEntity<Map<String, Object>> signup(@RequestBody UserCredentials credentials) {
-        boolean isRegistered = userService.register(credentials.getEmail(), credentials.getPassword());
+        boolean isRegistered = userService.register(credentials.getEmail(), credentials.getPassword(), credentials.getUsername());
         Map<String, Object> response = new HashMap<>();
 
         if (isRegistered) {

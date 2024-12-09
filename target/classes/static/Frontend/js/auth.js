@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const signupForm = document.getElementById('signup-form');
     const signupEmailInput = document.getElementById('signup-email');
     const signupPasswordInput = document.getElementById('signup-password');
-    const signupUsernameInput = document.getElementById('signup-username');
 
     // Evento de submissão do formulário de Login
     loginForm.addEventListener('submit', function (event) {
@@ -49,7 +48,6 @@ document.addEventListener('DOMContentLoaded', function () {
         // Coleta os valores dos inputs
         const email = signupEmailInput.value;
         const password = signupPasswordInput.value;
-        const username = signupUsernameInput.value;
 
         // Verifica se a resposta está no formato esperado
         fetch('http://localhost:8080/api/signup', {
@@ -57,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ email, password, username })
+            body: JSON.stringify({ email, password })
         })
             .then(response => {
                 if (!response.ok) {
